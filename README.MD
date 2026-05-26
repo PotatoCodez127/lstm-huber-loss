@@ -3,7 +3,7 @@
 ## Overview
 This project is an LSTM-based regression model designed to predict exact future asset prices. It ingests a 3D Tensor of historical time-series data (50 sequential candles) and outputs a continuous price target for 5 days into the future. 
 
-[visual aid](./img/lstm_visual_demonstration.png)
+![visual aid](./img/lstm_visual_demonstration.png)
 
 ## Architecture
 * **Inputs:** 3D Tensor `[Batch Size, Sequence Length (50), Features (1)]`.
