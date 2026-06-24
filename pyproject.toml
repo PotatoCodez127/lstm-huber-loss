@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xau-huber-lstm-forecaster"
+version = "1.0.0"
+description = "A volatility-resilient PyTorch LSTM regression model for gold macro trend projection."
+readme = "README.MD"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Office/Business :: Financial :: Investment",
+]
+dependencies = [
+    "torch>=2.0.0",
+    "numpy>=1.22.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "ruff>=0.1.0",
+    "black>=23.0.0",
+]
+
+[tool.black]
+line-length = 100
+target-version = ['py310']
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "N", "I"]
+ignore = []
+
+[tool.ruff.lint.pep8-naming]
+ignore-names = ["X", "X_train", "X_val", "X_test", "y", "y_train", "y_val", "y_test"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["data_engine_lstm", "model_lstm"]
