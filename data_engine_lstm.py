@@ -2,8 +2,14 @@
 import torch
 import numpy as np
 
-def generate_macro_sequence(samples=1000, seq_length=50):
-    # Simulate a macro market cycle (sine wave) + upward drift + noise
+def generate_macro_sequence(samples=1000, seq_length=50, seed=None):
+    """
+    Simulates a macro market cycle (sine wave) + upward drift + noise.
+    Includes explicit seed control to enforce deterministic pipeline verification.
+    """
+    if seed is not None:
+        np.random.seed(seed)
+        
     time = np.linspace(0, 100, samples + seq_length + 5)
     macro_price = np.sin(time) * 50 + (time * 2) + 1900 + np.random.normal(0, 5, len(time))
     
